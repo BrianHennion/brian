@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{% block style %}<link href="css/style-signin.css" rel="stylesheet"> {% endblock %}
+{% block title %} {{ parent() }} Ajouter utilisateur {% endblock %}
+{% block contenu %} 
+    {% if form.utilisateur is defined %} 
+    
+            <form class="form-signin" action="index.php?page=ajouterUtilisateur" method="post" enctype="application/x-www-form-urlencoded">
+            <h1 class="h3 mb-3 font-weight-normal">Ajouter un utilisateur</h1>
+            <label for="nom" class="sr-only">Nom:</label>
+            <input type="nom" id="nom" name="nom" class="form-control" placeholder="Nom" required autofocus>
+            
+            <label for="prenom" class="sr-only">Prenom:</label>
+            <input type="prenom" id="prenom" name="prenom" class="form-control" placeholder="Prenom" required>
+            
+            <label for="adresse" class="sr-only">Adresse:</label>
+            <input type="adresse" id="adresse" name="adresse" class="form-control" placeholder="Adresse" value="adresse" required autofocus>
+      
+            <label for="cp" class="sr-only">CP:</label>
+            <input type="cp" id="cp" name="cp" class="form-control" placeholder="CP" value="cp" required autofocus>
+      
+            <label for="ville" class="sr-only">Ville:</label>
+            <input type="ville" id="ville" name="ville" class="form-control" placeholder="Ville" value="ville" required autofocus>
+      
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btAjouter">Ajouter</button> </form>    
+    {% endif %}      
+{% endblock %}

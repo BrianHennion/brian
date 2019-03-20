@@ -39,4 +39,19 @@ function actionApropos($twig){
 function actionMaintenance($twig){
     echo $twig->render('maintenance.html.twig', array());
 }
+
+function actionAjouterUtilisateur($twig,$db){
+    $form = array();
+    $utilisateur = new Utilisateur($db);
+    if (isset($POST['btAjouter'])){
+        $inputNom = $_POST['nom'];
+        $inputPrenom = $_POST['prenom'];
+        $inputAdresse = $_POST['adresse'];
+        $inputCP = $_POST['cp'];
+        $inputVille = $_POST['ville'];
+        $form['valide'] = true;
+        $utilisateur->insert($inputNom, $inputPrenom, $inputAdresse, $inputCP, $inputVille);
+    }
+    echo $twig->render('ajouterUtilisateur.html.twig', array('form'=>$form));
+}
 ?>
