@@ -43,7 +43,8 @@ function actionMaintenance($twig){
 function actionAjouterUtilisateur($twig,$db){
     $form = array();
     $utilisateur = new Utilisateur($db);
-    if (isset($POST['btAjouter'])){
+    $form['valide'] = false;
+    if (isset($_POST['btAjouter'])){
         $inputNom = $_POST['nom'];
         $inputPrenom = $_POST['prenom'];
         $inputAdresse = $_POST['adresse'];
